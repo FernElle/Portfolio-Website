@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Start Screen -->
+<div id="start-screen" class="screen">
+    <h1>Riddle Quest</h1>
+    <p>Welcome to Riddle Quest! Solve the riddles to progress through the game.</p>
+    <button id="start-button">Start Game</button>
+  </div>
+ 
+<!-- Riddle Screen -->
+<div id="riddle-screen" class="screen hidden">
+  <div class="exit-button-container">
+    <button id="exit-button">Back to Start</button>
+  </div>
+
+  <div class="riddle-box">
+    <h2>Riddle</h2>
+    <p id="riddle-text"></p>
+
+    <div id="answer-container"></div>
+
+    <p id="feedback" class="hidden"></p>
+
+    <div class="controls">
+      <button id="next-button" class="hidden">Next Riddle</button>
+      <p id="timer">Time Left: <span id="time-left">30</span> seconds</p>
+      <p id="score">Score: <span id="score-value">0</span> / 3</p>
+    </div>
+  </div>
+</div>
+
+
+  
+<!-- Victory Screen -->
+<div id="victory-screen" class="screen hidden">
+  <h2>Congratulations!</h2>
+  <p>You solved all the riddles!</p>
+  <button id="restart-button">Play Again?</button>
+</div>
+
+<!-- Game Over Screen -->
+<div id="gameover-screen" class="screen hidden">
+  <h2>Game Over</h2>
+  <p>Oops! You got a riddle wrong. Try again?</p>
+  <button id="retry-button">Retry</button>
+</div>
+  
+
+  <script src="riddles.js" defer></script>
+</body>
+
+</html>

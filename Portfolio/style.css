@@ -1,0 +1,449 @@
+/* ===== Base Variables ===== */
+:root {
+  --bg-light: #f5eee8;
+  --green: #84b766;
+  --text-dark: #2e2e2e;
+  --pink-light: #fcd1db;
+  --pink-mid: #cc6d8e;
+  --pink-deep: #e875c2;
+  --serif: 'Playfair Display', serif;
+  --sans: 'Segoe UI', sans-serif;
+}
+
+/* ===== Base Setup ===== */
+body {
+  margin: 0;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Custom Header === */
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+  border-bottom: 2px solid var(--green);
+  position: relative;
+}
+
+/* === Brand Wrap (Logo + Heading) === */
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* === Logo Styling === */
+.nav-logo {
+  height: 200px;
+  width: auto;
+  margin-right: 1rem;
+  position: top, left;
+  top: 20px; /* This pulls it DOWN over the navbar */
+  z-index: 2;
+}
+
+/* === Heading Styling === */
+.nav-heading {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--green);
+  z-index: 1;
+}
+
+/* === Nav Circles (unchanged) === */
+.nav-circles {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-circles a,
+#theme-toggle {
+  width: 60px;
+  height: 60px;
+  background-color: var(--pink-light);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-circles a:nth-child(2) {
+  background-color: var(--pink-mid);
+}
+.nav-circles a:nth-child(3) {
+  background-color: var(--pink-deep);
+}
+.nav-logo {
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+}
+
+
+/* ===== Section Blocks ===== */
+.section-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 15rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.section-title {
+  background-color: var(--green);
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.section-img {
+  max-width: 100%;
+  width: 300px;
+  border-radius: 25px;
+  border: 5px solid var(--green);
+}
+
+.section-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.placeholder-text {
+  background-color: var(--pink-light);
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Make the clickable part visually distinct */
+.section-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.section-link:hover {
+  transform: scale(1.02);
+}
+
+/* Add hover glow or shadow to images/titles */
+.section-link .section-title,
+.section-link .section-img {
+  transition: box-shadow 0.3s ease;
+}
+
+.section-link:hover .section-title,
+.section-link:hover .section-img {
+  box-shadow: 0 0 10px rgba(132, 183, 102, 0.5); /* soft green glow */
+}
+
+/* Paragraph styling */
+.section-text p {
+  background-color: var(--pink-light);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Alternate background section */
+.alt-section {
+  background-color: #fcd1db; /* pastel pink (same tone from nav buttons) */
+  padding: 5rem 15rem;
+}
+
+/* Optional: soften text color slightly */
+.alt-section .section-text p {
+  background-color: #fff0f4;
+}
+
+
+.reveal {
+  opacity: 1;         /* <- make visible */
+  transform: none;    /* <- disable movement */
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .section-block {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .section-img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nav-circles {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+}
+
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark-mode .section-title {
+  background-color: #4e875b;
+}
+
+.dark-mode .placeholder-text {
+  background-color: #7c4d60;
+}
+
+.dark-mode header {
+  border-color: #4e875b;
+}
+
+.dark-mode .nav-circles a,
+.dark-mode #theme-toggle {
+  filter: brightness(0.85);
+}
+
+/* ===== Animations ===== */
+/* Logo sway animation */
+.logo {
+  animation: sway 3s infinite ease-in-out;
+}
+
+/* Sections gently rise on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gamebody {
+    background-color: #f9f8f3; /* Light beige background */
+    background-image: url('Assets/Sweetpeas.png'), url('Assets/Plant.png'); /* Background images */
+    background-position: left top, right bottom; /* Position of background images */
+    background-repeat: no-repeat, no-repeat; /* No repeat for background images */
+    background-size: auto 60%, auto 50%; /* Size of background images */
+    font-family: 'Times New Roman', Times, serif; /* Font family */
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically and horizontally */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Main Game Screen */
+.screen {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* for vertical stacking */
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #a0c3a8;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.exit-button-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+#exit-button {
+  background-color: #d9534f;
+  color: white;
+  font-size: 0.9em;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#exit-button:hover {
+  background-color: #c9302c;
+}
+
+
+
+#next-button {
+    background-color: #598b57; /* Soft green background */
+    color: #111; /* Dark text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding inside the button */
+    border-radius: 30px; /* Rounded corners */
+    font-size: 1em; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#next-button:hover {
+    background-color: #5d9e6b; /* Lighter green on hover */
+}
+
+#start-button {
+    background-color: #598b57; /* Soft green background */
+    color: #111; /* Dark text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding inside the button */
+    border-radius: 30px; /* Rounded corners */
+    font-size: 1em; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#start-button:hover {
+    background-color: #5d9e6b; /* Lighter green on hover */
+}
+
+
+
+/* Hide non-active screens */
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+/* Riddle Title */
+#riddle-text {
+    font-size: 1.5em; /* Larger font size for the riddle text */
+    margin-bottom: 30px; /* Space below the riddle text */
+    color: #333; /* Dark text color */
+}
+
+/* Options */
+#answer-container {
+    border: none; /* Soft green border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px; /* Padding around the options */
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Column layout */
+    gap: 15px; /* Space between options */
+}
+
+/* Answer Buttons */
+#answer-container-button {
+    background-color: #7da87b; /* Soft green background */
+    color: #111; /* Dark text color */
+    border: none; /* No border */
+    padding: 15px; /* Padding inside the button */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 1.1em; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#answer-container-button:hover {
+    background-color: #a0c3a8; /* Lighter green on hover */
+}
+
+/* Feedback Message */
+#feedback {
+    margin-top: 15px; /* Space above the feedback message */
+    font-weight: bold; /* Bold text */
+    font-size: 1.1em; /* Larger font size */
+}
+
+#feedback.correct {
+    color: #2e7d32; /* Green for correct answers */
+}
+
+#feedback.incorrect {
+    color: #d32f2f; /* Red for incorrect answers */
+}
+
+#retry-button {
+    background-color: #7da87b; /* Soft green background */
+    color: #111; /* Dark text color */
+    border: none; /* No border */
+    padding: 15px; /* Padding inside the button */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 1.1em; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.exit-button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#exit-button {
+  background-color: #d9534f; /* a soft red to indicate exit */
+  padding: 8px 16px;
+  font-size: 0.9em;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#exit-button:hover {
+  background-color: #c9302c;
+}
+
+
+/* Score, Timer, and Level */
+.controls {
+    margin-top: 20px; /* Space above the controls */
+}
+
+#time-left {
+    margin-top: 10px; /* Space above the score display */
+    font-size: 1.2em; /* Larger font size for timer */
+    color: #333; /* Dark text color */
+}
+
+#score-value {
+    margin-top: 10px; /* Space above the score display */
+    font-weight: bold;
+    font-size: 1.2em; /* Larger font size for score */
+    color: #333; /* Dark text color */
+}
